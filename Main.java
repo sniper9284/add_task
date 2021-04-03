@@ -12,20 +12,30 @@ public class Main {
         int min=0;
         int max=10;
         int x  =  min +  rand.nextInt(max - min + 1);
-
         //вызываем запрос числа от пользователя
         Scanner check = new Scanner(System.in);
-        System.out.println("Введите число от 0 до 10");
-        int y = check.nextInt();
+        int use;
+        boolean win = false;
+        System.out.println( "- введите число от 1 до 10" );
 
-        //сравниваем число пользователя и рандомное
-        if (x < y) {
-            System.out.println("Ваше число больше. Компьютер загадал " + x);
-        } else if (y < x) {
-            System.out.println("Ваше число меньше. Компьютер загадал " + x);
-        } else if (x == y) {
-            System.out.println("Вы угадали! Поздравляю");
+        while (win == false) {
+
+            System.out.println( "Ваше число:" );
+            use = check.nextInt();
+
+            min++;
+
+            if (use == x) {
+                win = true;
+            }
+            else if (use < x) {
+                System.out.println("- Ваше число меньше\n");
+            }
+            else if (use > x) {
+                System.out.println("- ваше число больше\n");
+            }
         }
+        System.out.println("\nВы победили, поздравляю!");
     }
-
 }
+
